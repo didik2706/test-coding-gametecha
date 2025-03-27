@@ -1,8 +1,9 @@
 import { Injectable } from '@nestjs/common';
+import { PromoCansDto } from './app.dto';
 
 @Injectable()
 export class AppService {
-  getHello(): string {
-    return 'Hello World!';
+  calculateCans(promoCansDto: PromoCansDto): number {
+    return promoCansDto.initialCans + Math.floor(promoCansDto.initialCans / 3);
   }
 }

@@ -8,8 +8,10 @@ export class AppController {
 
   @Post("promo/cans")
   getPromo(@Body() body: PromoCansDto): object {
+    const result = this.appService.calculateCans(body)
+    
     return {
-      totalCansReceived: body.initialCans + Math.floor(body.initialCans / 3)
+      totalCansReceived: result
     }
   }
 }
